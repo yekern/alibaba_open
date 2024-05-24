@@ -8,8 +8,16 @@ class OfferPoolQueryParams extends BaseEntityParams
 
     private $offerPoolQueryParam;
 
-    public function __construct($offerPoolId, $pageNo, $pageSize,$taskId)
+    /**
+     * @throws \Exception
+     */
+    public function __construct($offerPoolId, $pageNo, $pageSize, $taskId)
     {
+
+        if ($pageSize > 500) {
+            throw new \Exception('pageSize不能大于500');
+        }
+
         $this->offerPoolQueryParam = [
             'offerPoolId' => $offerPoolId,
             'pageNo'      => $pageNo,
