@@ -8,12 +8,13 @@ class OfferPoolQueryParams extends BaseEntityParams
 
     private $offerPoolQueryParam;
 
-    public function __construct($offerPoolId, $pageNo, $pageSize)
+    public function __construct($offerPoolId, $pageNo, $pageSize,$taskId)
     {
         $this->offerPoolQueryParam = [
             'offerPoolId' => $offerPoolId,
             'pageNo'      => $pageNo,
-            'pageSize'    => $pageSize
+            'pageSize'    => $pageSize,
+            'taskId'      => $taskId
         ];
     }
 
