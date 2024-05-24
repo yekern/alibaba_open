@@ -154,7 +154,7 @@ class Product extends BaseClient
      */
     public function getCrossProductDetailByPool(OfferDetailParams $offer_detail_params)
     {
-        $this->app->params = $offer_detail_params;
+        $this->app->params = $offer_detail_params->build();
         $this->url_info = 'com.alibaba.fenxiao.crossborder:product.search.queryProductDetail-1';
         return $this;
     }
