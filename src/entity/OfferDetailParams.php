@@ -5,14 +5,15 @@ namespace Yekern\AlibabaOpen\entity;
 class OfferDetailParams extends BaseEntityParams
 {
 
-    protected $offerId;
+    private $offerDetailParam;
 
-    protected $country;
 
     public function __construct($offerId, $country = 'en')
     {
-        $this->offerId = $offerId;
-        $this->country = $country;
+        $this->offerDetailParam = [
+            'offerId' => $offerId,
+            'country' => $country,
+        ];
     }
 
 
