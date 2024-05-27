@@ -3,6 +3,7 @@
 namespace Yekern\AlibabaOpen;
 
 use Yekern\AlibabaOpen\core\ContainerBase;
+use Yekern\AlibabaOpen\provider\CategoryProvider;
 use Yekern\AlibabaOpen\provider\ProductProvider;
 use Yekern\AlibabaOpen\provider\StoreProvider;
 
@@ -31,6 +32,7 @@ class AlibabaClient extends ContainerBase
     protected $provider = [
         StoreProvider::class,
         ProductProvider::class,
+        CategoryProvider::class,
         //...其他服务提供者
     ];
 }
