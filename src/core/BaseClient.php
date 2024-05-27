@@ -103,7 +103,16 @@ class BaseClient
     {
         $this->sign('get');
         $file = $this->curlRequest($this->res_url, '', 'get');
-        return json_decode($file, true);
+        $result = json_decode($file,true);
+        if (isset($result['error_message'])) {
+            return [
+                'result' => [
+                    'success' => false,
+                    'code'  => $result['error_code']
+                ]
+            ];
+        }
+        return $result;
     }
 
     /**
@@ -113,8 +122,20 @@ class BaseClient
     public function post()
     {
         $this->sign('post');
-        $result = $this->curlRequest($this->res_url, $this->postData, 'post');
-        return json_decode($result, true);
+
+        $file = $this->curlRequest($this->res_url, $this->postData, 'post');
+
+        $result = json_decode($file,true);
+
+        if (isset($result['error_message'])) {
+            return [
+                'result' => [
+                    'success' => false,
+                    'code'  => $result['error_code']
+                ]
+            ];
+        }
+        return $result;
     }
 
     /**
