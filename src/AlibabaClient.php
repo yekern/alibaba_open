@@ -9,10 +9,11 @@ use Yekern\AlibabaOpen\provider\StoreProvider;
 
 /**
  * Class Application
- * @property \Yekern\AlibabaOpen\functions\product\Product product
- * @property \Yekern\AlibabaOpen\functions\order\Order order
- * @property \Yekern\AlibabaOpen\functions\order\Logistics logistics
- * @property \Yekern\AlibabaOpen\functions\order\Refund refund
+ * @property \Yekern\AlibabaOpen\functions\product\Product   product
+ * @property \Yekern\AlibabaOpen\functions\order\Order       order
+ * @property \Yekern\AlibabaOpen\functions\order\Logistics   logistics
+ * @property \Yekern\AlibabaOpen\functions\order\Refund      refund
+ * @property \Yekern\AlibabaOpen\functions\category\Category category
  */
 class AlibabaClient extends ContainerBase
 {
