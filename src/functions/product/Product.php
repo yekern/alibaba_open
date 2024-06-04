@@ -10,6 +10,7 @@ use Yekern\AlibabaOpen\entity\ListCybUserGroupFeedParams;
 use Yekern\AlibabaOpen\entity\ListOverPricedOfferParams;
 use Yekern\AlibabaOpen\entity\OfferDetailParams;
 use Yekern\AlibabaOpen\entity\OfferPoolQueryParams;
+use Yekern\AlibabaOpen\entity\ProductFollowCrossParams;
 use Yekern\AlibabaOpen\entity\ProductFollowParams;
 use Yekern\AlibabaOpen\entity\ProductUnfollowParams;
 use Yekern\AlibabaOpen\entity\QueryOfferDetailActivityParams;
@@ -157,6 +158,17 @@ class Product extends BaseClient
         $this->app->params = $offer_detail_params->build();
         $this->url_info = 'com.alibaba.fenxiao.crossborder:product.search.queryProductDetail-1';
         return $this;
+    }
+
+    /**
+     * 增加跨境关注商品
+     * @param ProductFollowCrossParams $follow_cross_params
+     * @return void
+     */
+    public function productFollowByCross(ProductFollowCrossParams $follow_cross_params)
+    {
+        $this->app->params = $follow_cross_params->build();
+        $this->url_info = 'com.alibaba.fenxiao.crossborder:product.kjdistribute.addRelation-1';
     }
 
 }
