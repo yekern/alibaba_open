@@ -163,12 +163,13 @@ class Product extends BaseClient
     /**
      * 增加跨境关注商品
      * @param ProductFollowCrossParams $follow_cross_params
-     * @return void
+     * @return Product
      */
     public function productFollowByCross(ProductFollowCrossParams $follow_cross_params)
     {
         $this->app->params = $follow_cross_params->build();
         $this->url_info = 'com.alibaba.fenxiao.crossborder:product.kjdistribute.addRelation-1';
+        return $this;
     }
 
 }
