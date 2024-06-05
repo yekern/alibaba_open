@@ -5,11 +5,14 @@ namespace Yekern\AlibabaOpen\functions\order;
 use Yekern\AlibabaOpen\core\BaseClient;
 use Yekern\AlibabaOpen\entity\CancelTradeParams;
 use Yekern\AlibabaOpen\entity\CreateCrossOrderParams;
+use Yekern\AlibabaOpen\entity\CreateCrossOrderPreviewParams;
 use Yekern\AlibabaOpen\entity\CreateOrder4CybMediaParams;
 use Yekern\AlibabaOpen\entity\OrderDetailParams;
 use Yekern\AlibabaOpen\entity\OrderListParams;
+use Yekern\AlibabaOpen\entity\PayProtocolPayPreparePayParams;
 use Yekern\AlibabaOpen\entity\Preview4CybMediaParams;
 use Yekern\AlibabaOpen\entity\ProtocolPayParams;
+use Yekern\AlibabaOpen\entity\ReceiveGoodsConfirmParams;
 
 /**
  * 订单模块
@@ -98,6 +101,43 @@ class Order extends BaseClient
     {
         $this->app->params = $create_cross_order_params->build();
         $this->url_info = 'com.alibaba.trade:alibaba.trade.createCrossOrder-1';
+        return $this;
+    }
+
+    /**
+     * 创建订单前预览数据接口
+     * @param CreateCrossOrderPreviewParams $create_cross_order_preview_params
+     * @return $this
+     */
+    public function createCrossOrderPreview(CreateCrossOrderPreviewParams $create_cross_order_preview_params)
+    {
+        $this->app->params = $create_cross_order_preview_params->build();
+        $this->url_info = 'com.alibaba.trade:alibaba.createOrder.preview-1';
+        return $this;
+    }
+
+    /**
+     * 买家确认收货
+     * @param ReceiveGoodsConfirmParams $confirm_params
+     * @return $this
+     */
+    public function receiveGoodsConfirm(ReceiveGoodsConfirmParams $confirm_params)
+    {
+        $this->app->params = $confirm_params->build();
+        $this->url_info = 'com.alibaba.trade:trade.receivegoods.confirm-1';
+        return $this;
+    }
+
+
+    /**
+     * 发起免密支付
+     * @param PayProtocolPayPreparePayParams $params
+     * @return $this
+     */
+    public function payProtocolPayPreparePay(PayProtocolPayPreparePayParams $params)
+    {
+        $this->app->params = $params->build();
+        $this->url_info = 'com.alibaba.trade:alibaba.trade.pay.protocolPay.preparePay-1';
         return $this;
     }
 
