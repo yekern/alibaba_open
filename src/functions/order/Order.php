@@ -4,6 +4,7 @@ namespace Yekern\AlibabaOpen\functions\order;
 
 use Yekern\AlibabaOpen\core\BaseClient;
 use Yekern\AlibabaOpen\entity\CancelTradeParams;
+use Yekern\AlibabaOpen\entity\CreateCrossOrderParams;
 use Yekern\AlibabaOpen\entity\CreateOrder4CybMediaParams;
 use Yekern\AlibabaOpen\entity\OrderDetailParams;
 use Yekern\AlibabaOpen\entity\OrderListParams;
@@ -85,6 +86,18 @@ class Order extends BaseClient
     {
         $this->app->params = $cancelTradeParams->build();
         $this->url_info    = 'com.alibaba.trade:alibaba.trade.cancel-1';
+        return $this;
+    }
+
+    /**
+     * 跨境订单创建
+     * @param CreateCrossOrderParams $create_cross_order_params
+     * @return $this
+     */
+    public function createCrossOrder(CreateCrossOrderParams $create_cross_order_params)
+    {
+        $this->app->params = $create_cross_order_params->build();
+        $this->url_info = 'com.alibaba.trade:alibaba.trade.createCrossOrder-1';
         return $this;
     }
 
