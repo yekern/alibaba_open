@@ -41,6 +41,73 @@ class CreateCrossOrderParams extends BaseEntityParams
      */
     private $tradeType;
 
+
+    /**
+     * 发票信息
+     * @var $invoiceParam
+     */
+    private $invoiceParam;
+
+    /**
+     * 店铺优惠ID，通过“创建订单前预览数据接口”获得。为空默认使用默认优惠
+     * @var $shopPromotionId
+     */
+    private $shopPromotionId;
+
+    /**
+     * 是否匿名下单
+     * @var $anonymousBuyer
+     */
+    private $anonymousBuyer;
+
+    /**
+     * 回流订单下游平台 淘宝-thyny，天猫-tm，淘特-taote，阿里巴巴C2M-c2m，京东-jingdong，拼多多-pinduoduo，微信-weixin，跨境-kuajing，快手-kuaishou，有赞-youzan，抖音-douyin，寺库-siku，美团团好货-meituan，小红书-xiaohongshu，当当-dangdang，苏宁-suning，大V店-davdian，行云-xingyun，蜜芽-miya，菠萝派商城-boluo，快团团-kuaituantuan，其他-other
+     * @var $fenxiaoChannel
+     */
+    private $fenxiaoChannel;
+
+    /**
+     * 库存模式，JIT（jit模式）或 NORMAL（仓发模式）,目前只提供给AE使用
+     * @var $inventoryMode
+     */
+    private $inventoryMode;
+
+    /**
+     * 上门揽收,目前AE供货可用，其他场景暂不开通.y或n,默认为n
+     * @var $pickupService
+     */
+    private $pickupService;
+
+    /**
+     * 上门揽仓库code
+     * @var $warehouseCode
+     */
+    private $warehouseCode;
+
+    /**
+     * 预选的支付渠道，用作财务订单分流。订单信息查询接口返回：result.exAttributes.preSelectPayChannel ，该值是创建订单接口时传入的预选的支付渠道标记。
+     * @var $preSelectPayChannel
+     */
+    private $preSelectPayChannel;
+
+    /**
+     * 是否小额采购，目前AE供货可用，取值y/n，默认为n
+     * @var $smallProcurement
+     */
+    private $smallProcurement;
+
+    /**
+     * 使用红包：y使用，n不使用。默认使用红包
+     * @var $useRedEnvelope
+     */
+    private $useRedEnvelope;
+
+    /**
+     * 是否转运订单，取值y/n，默认为n
+     * @var $dropshipping
+     */
+    private $dropshipping;
+
     /**
      * @param $flow
      * @param $addressParam
@@ -53,6 +120,96 @@ class CreateCrossOrderParams extends BaseEntityParams
         $this->addressParam = $addressParam;
         $this->cargoParamList = $cargoParamList;
         $this->outOrderId = $outOrderId;
+    }
+
+
+
+    /**
+     * @param mixed $invoiceParam
+     */
+    public function setInvoiceParam($invoiceParam): void
+    {
+        $this->invoiceParam = $invoiceParam;
+    }
+
+    /**
+     * @param mixed $shopPromotionId
+     */
+    public function setShopPromotionId($shopPromotionId): void
+    {
+        $this->shopPromotionId = $shopPromotionId;
+    }
+
+    /**
+     * @param mixed $anonymousBuyer
+     */
+    public function setAnonymousBuyer($anonymousBuyer): void
+    {
+        $this->anonymousBuyer = $anonymousBuyer;
+    }
+
+    /**
+     * @param mixed $fenxiaoChannel
+     */
+    public function setFenxiaoChannel($fenxiaoChannel): void
+    {
+        $this->fenxiaoChannel = $fenxiaoChannel;
+    }
+
+    /**
+     * @param mixed $inventoryMode
+     */
+    public function setInventoryMode($inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
+    }
+
+    /**
+     * @param mixed $pickupService
+     */
+    public function setPickupService($pickupService): void
+    {
+        $this->pickupService = $pickupService;
+    }
+
+    /**
+     * @param mixed $warehouseCode
+     */
+    public function setWarehouseCode($warehouseCode): void
+    {
+        $this->warehouseCode = $warehouseCode;
+    }
+
+    /**
+     * @param mixed $preSelectPayChannel
+     */
+    public function setPreSelectPayChannel($preSelectPayChannel): void
+    {
+        $this->preSelectPayChannel = $preSelectPayChannel;
+    }
+
+    /**
+     * @param mixed $smallProcurement
+     */
+    public function setSmallProcurement($smallProcurement): void
+    {
+        $this->smallProcurement = $smallProcurement;
+    }
+
+    /**
+     * @param mixed $useRedEnvelope
+     */
+    public function setUseRedEnvelope($useRedEnvelope): void
+    {
+        $this->useRedEnvelope = $useRedEnvelope;
+    }
+
+    /**
+     * @param mixed $dropshipping
+     */
+    public function setDropshipping($dropshipping): void
+    {
+        $this->dropshipping = $dropshipping;
     }
 
 
