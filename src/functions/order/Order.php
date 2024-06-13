@@ -9,6 +9,7 @@ use Yekern\AlibabaOpen\entity\CreateCrossOrderPreviewParams;
 use Yekern\AlibabaOpen\entity\CreateOrder4CybMediaParams;
 use Yekern\AlibabaOpen\entity\OrderDetailParams;
 use Yekern\AlibabaOpen\entity\OrderListParams;
+use Yekern\AlibabaOpen\entity\OrderPayAnalysisParams;
 use Yekern\AlibabaOpen\entity\PayProtocolPayPreparePayParams;
 use Yekern\AlibabaOpen\entity\Preview4CybMediaParams;
 use Yekern\AlibabaOpen\entity\ProtocolPayParams;
@@ -28,7 +29,7 @@ class Order extends BaseClient
     public function buyerOrderList(OrderListParams $orderListParams)
     {
         $this->app->params = $orderListParams->build();
-        $this->url_info    = 'com.alibaba.trade:alibaba.trade.getBuyerOrderList-1';
+        $this->url_info = 'com.alibaba.trade:alibaba.trade.getBuyerOrderList-1';
         return $this;
     }
 
@@ -40,7 +41,7 @@ class Order extends BaseClient
     public function buyerOrderDetail(OrderDetailParams $orderDetailParams)
     {
         $this->app->params = $orderDetailParams->build();
-        $this->url_info    = 'com.alibaba.trade:alibaba.trade.get.buyerView-1';
+        $this->url_info = 'com.alibaba.trade:alibaba.trade.get.buyerView-1';
         return $this;
     }
 
@@ -52,7 +53,7 @@ class Order extends BaseClient
     public function preview4CybMedia(Preview4CybMediaParams $preview4CybMediaParams)
     {
         $this->app->params = $preview4CybMediaParams->build();
-        $this->url_info    = 'com.alibaba.trade:alibaba.createOrder.preview4CybMedia-1';
+        $this->url_info = 'com.alibaba.trade:alibaba.createOrder.preview4CybMedia-1';
         return $this;
     }
 
@@ -64,7 +65,7 @@ class Order extends BaseClient
     public function createOrder4CybMedia(CreateOrder4CybMediaParams $createOrder4CybMediaParams)
     {
         $this->app->params = $createOrder4CybMediaParams->build();
-        $this->url_info    = 'com.alibaba.trade:alibaba.trade.createOrder4CybMedia-1';
+        $this->url_info = 'com.alibaba.trade:alibaba.trade.createOrder4CybMedia-1';
         return $this;
     }
 
@@ -76,7 +77,7 @@ class Order extends BaseClient
     public function protocolPay(ProtocolPayParams $protocolPayParams)
     {
         $this->app->params = $protocolPayParams->build();
-        $this->url_info    = 'com.alibaba.trade:alibaba.trade.pay.protocolPay-1';
+        $this->url_info = 'com.alibaba.trade:alibaba.trade.pay.protocolPay-1';
         return $this;
     }
 
@@ -88,7 +89,7 @@ class Order extends BaseClient
     public function cancelTrade(CancelTradeParams $cancelTradeParams)
     {
         $this->app->params = $cancelTradeParams->build();
-        $this->url_info    = 'com.alibaba.trade:alibaba.trade.cancel-1';
+        $this->url_info = 'com.alibaba.trade:alibaba.trade.cancel-1';
         return $this;
     }
 
@@ -138,6 +139,18 @@ class Order extends BaseClient
     {
         $this->app->params = $params->build();
         $this->url_info = 'com.alibaba.trade:alibaba.trade.pay.protocolPay.preparePay-1';
+        return $this;
+    }
+
+    /**
+     * 交易订单支付咨询
+     * @param OrderPayAnalysisParams $params
+     * @return $this
+     */
+    public function orderPayAnalysis(OrderPayAnalysisParams $params)
+    {
+        $this->app->params = $params->build();
+        $this->url_info = 'com.alibaba.trade:trade.orderpay.analysis-1';
         return $this;
     }
 
