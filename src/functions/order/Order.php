@@ -132,6 +132,7 @@ class Order extends BaseClient
 
     /**
      * 发起免密支付
+     * @see https://open.1688.com/api/apidocdetail.htm?id=com.alibaba.trade:alibaba.trade.pay.protocolPay.preparePay-1
      * @param PayProtocolPayPreparePayParams $params
      * @return $this
      */
@@ -144,6 +145,7 @@ class Order extends BaseClient
 
     /**
      * 交易订单支付咨询
+     * @see https://open.1688.com/api/apidocdetail.htm?id=com.alibaba.trade:trade.orderpay.analysis-1
      * @param OrderPayAnalysisParams $params
      * @return $this
      */
@@ -153,5 +155,17 @@ class Order extends BaseClient
         $this->url_info = 'com.alibaba.trade:trade.orderpay.analysis-1';
         return $this;
     }
+
+    /**
+     * 查询是否开通免密支付
+     * @see https://open.1688.com/api/apidocdetail.htm?id=com.alibaba.trade:alibaba.trade.pay.protocolPay.isopen-1
+     * @return $this
+     */
+    public function protocolPayIsOpen()
+    {
+        $this->url_info = 'com.alibaba.trade:alibaba.trade.pay.protocolPay.isopen-1';
+        return $this;
+    }
+
 
 }
